@@ -19,10 +19,15 @@ function nodir_scripts()
     wp_enqueue_script('nodir-scripts', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), null, true);
 };
 
+add_theme_support( 'custom-logo' );
+
+add_theme_support( 'post-thumbnails' );
 
 
-
-
-    add_theme_support( 'custom-logo' );
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyCMgoLVH3w44x7QvyK0rUs3CkMt8CqzMfw';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 ?>
