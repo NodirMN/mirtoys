@@ -22,7 +22,22 @@ function nodir_scripts()
 add_theme_support( 'custom-logo' );
 
 add_theme_support( 'post-thumbnails' );
+add_theme_support('menus');
 
+
+add_filter('nav_menu_link_attributes', 'filter_nav_menu_link_attributes', 10, 3);
+function filter_nav_menu_link_attributes($atts, $item, $args)
+{
+    if ($args->menu === 'Main') {
+        $atts['class'] = 'header__nav-item';
+
+        if ($item->current) {
+            $atts['class'] .= ' header__nav-item-active';
+        }
+    };
+
+    return $atts;
+}
 
 function my_acf_google_map_api( $api ){
     $api['key'] = 'AIzaSyCMgoLVH3w44x7QvyK0rUs3CkMt8CqzMfw';

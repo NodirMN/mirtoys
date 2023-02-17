@@ -11,7 +11,6 @@
         <div class="reply__title">
             Оставьте ваш вопрос здесь
         </div>
-       
         <?php echo do_shortcode('[contact-form-7 id="839" title="Popup вопрос"]');?>
 
             
